@@ -17,9 +17,9 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
   }
 
   return (
-    <section id={id} className="hero-section">
+    <section id={id} className="min-h-screen flex items-center py-16">
       <div className="container px-4 mx-auto">
-        <div className="grid md:grid-cols-2 gap-2 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left content */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -63,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
 
           {/* Right content - Profile Picture */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative aspect-square w-72 md:w-96">
+            <div className="relative aspect-square w-64 md:w-80">
               <div className="absolute inset-0 rounded-full border-4 border-emerald-600 overflow-hidden">
                 <Image
                   src="/images/redo.jpg"
@@ -71,11 +71,6 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
                   fill
                   className="object-cover"
                   priority
-                  onError={(e) => {
-                    console.error('Image failed to load:', e);
-                    // Optionally set a fallback image
-                    // e.currentTarget.src = '/images/fallback.jpg';
-                  }}
                 />
               </div>
             </div>

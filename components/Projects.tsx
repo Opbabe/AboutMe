@@ -104,12 +104,12 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
   }
 
   return (
-    <section id={id} className="projects-section">
+    <section id={id} className="py-16 bg-background">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-2">Portfolio</h2>
-          <p className="text-xl text-muted-foreground">Most Recent Work</p>
-        </div>
+        <h2 className="text-center mb-12">
+          <span className="block text-4xl font-bold text-foreground mb-2">Projects</span>
+          <span className="text-xl text-muted-foreground">Some of my recent work</span>
+        </h2>
 
         <div className="max-w-6xl mx-auto relative">
           <button
