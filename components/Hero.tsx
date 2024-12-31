@@ -16,7 +16,6 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
     smoothScroll(id)
   }
 
-  
   return (
     <section id={id} className="hero-section">
       <div className="container px-4 mx-auto">
@@ -67,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
             <div className="relative aspect-square w-72 md:w-96">
               <div className="absolute inset-0 rounded-full border-4 border-emerald-600 overflow-hidden">
                 <Image
-                  src="/images/headshot.jpg"
+                  src="/images/redo.jpg"
                   alt="Nick Tran"
                   fill
                   className="object-cover"
