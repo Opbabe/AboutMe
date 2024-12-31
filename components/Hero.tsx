@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
             <div className="relative aspect-square w-72 md:w-96">
               <div className="absolute inset-0 rounded-full border-4 border-emerald-600 overflow-hidden">
                 <Image
-                  src="/images/Headshot.jpg"
+                  src="/images/headshot.jpg"
                   alt="Nick Tran"
                   fill
                   className="object-cover"
