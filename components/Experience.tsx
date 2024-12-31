@@ -1,35 +1,39 @@
 import React from 'react'
 import { Calendar, MapPin } from 'lucide-react'
 
-const experiences = [
-  {
-    company: "Warp",
-    position: "Data Engineering Internship",
-    date: "June 2024 - September 2024",
-    location: "Los Angeles, CA",
-    type: "Hybrid",
-    achievements: [
-      "Secured $20 million funding from Angel investors within 3 months.",
-      "Coded logistics algorithms using JavaScript, NoSQL, and Linux.",
-      "Python automation saving $500k annually.",
-      "Designed ETL pipelines with Google Cloud Storage.",
-    ],
-  },
-  {
-    company: "Apple",
-    position: "Technical Data Staff",
-    date: "Oct 2023 - May 2024",
-    location: "Cupertino, CA",
-    type: "Onsite",
-    achievements: [
-      "iOS Support and Troubleshooting.",
-      "GitHub repository management.",
-      "VisionPro project contributions.",
-    ],
-  },
-]
+interface ExperienceProps {
+  id: string;
+}
 
-export default function Experience() {
+const Experience: React.FC<ExperienceProps> = ({ id }) => {
+  const experiences = [
+    {
+      company: "Warp",
+      position: "Data Engineering Internship",
+      date: "June 2024 - September 2024",
+      location: "Los Angeles, CA",
+      type: "Hybrid",
+      achievements: [
+        "Secured $20 million funding from Angel investors within 3 months.",
+        "Coded logistics algorithms using JavaScript, NoSQL, and Linux.",
+        "Python automation saving $500k annually.",
+        "Designed ETL pipelines with Google Cloud Storage.",
+      ],
+    },
+    {
+      company: "Apple",
+      position: "Technical Data Staff",
+      date: "Oct 2023 - May 2024",
+      location: "Cupertino, CA",
+      type: "Onsite",
+      achievements: [
+        "iOS Support and Troubleshooting.",
+        "GitHub repository management.",
+        "VisionPro project contributions.",
+      ],
+    },
+  ]
+
   return (
     <section id="experience" className="py-24 bg-white">
       <div className="container px-4 mx-auto">
@@ -98,4 +102,6 @@ export default function Experience() {
     </section>
   )
 }
+
+export default Experience
 

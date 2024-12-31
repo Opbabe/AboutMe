@@ -13,9 +13,13 @@ const courses = [
   'Machine Learning'
 ]
 
-export default function About() {
+interface AboutProps {
+  id: string;
+}
+
+const About: React.FC<AboutProps> = ({ id }) => {
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id={id} className="py-24 bg-white">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-zinc-900 mb-2">My Education</h2>
@@ -68,4 +72,6 @@ export default function About() {
     </section>
   )
 }
+
+export default About
 

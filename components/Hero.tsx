@@ -6,12 +6,17 @@ import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { smoothScroll } from '@/utils/smoothScroll'
 
-export default function Hero({ id }: { id?: string }) {
+interface HeroProps {
+  id: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ id }) => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     smoothScroll(id)
   }
 
+  
   return (
     <section id={id} className="min-h-screen flex items-center justify-center bg-background py-24">
       <div className="container px-4 mx-auto">
@@ -76,6 +81,8 @@ export default function Hero({ id }: { id?: string }) {
     </section>
   )
 }
+
+export default Hero
 
 
 

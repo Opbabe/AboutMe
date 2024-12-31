@@ -7,6 +7,10 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
+interface ProjectsProps {
+  id: string;
+}
+
 const projects = [
   {
     title: "Career Quest",
@@ -88,7 +92,7 @@ const projects = [
   }
 ]
 
-export default function Projects({ id }: { id?: string }) {
+const Projects: React.FC<ProjectsProps> = ({ id }) => {
   const [currentProject, setCurrentProject] = useState(0)
 
   const nextProject = () => {
@@ -206,6 +210,8 @@ export default function Projects({ id }: { id?: string }) {
     </section>
   )
 }
+
+export default Projects
 
 
 

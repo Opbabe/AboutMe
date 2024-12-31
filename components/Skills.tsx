@@ -2,6 +2,10 @@ import React from 'react'
 import { Code, Library, PenToolIcon as Tool } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
+interface SkillsProps {
+  id: string;
+}
+
 const skillCategories = [
   {
     title: "Languages",
@@ -42,7 +46,7 @@ const skillCategories = [
   },
 ]
 
-export default function Skills() {
+const Skills: React.FC<SkillsProps> = ({ id }) => {
   return (
     <section id="skills" className="py-24 bg-background">
       <div className="container px-4 mx-auto">
@@ -84,4 +88,6 @@ export default function Skills() {
     </section>
   )
 }
+
+export default Skills
 

@@ -5,9 +5,13 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 
-export default function Contact({ id }: { id?: string }) {
+interface ContactProps {
+  id: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ id }) => {
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id={id} className="py-24 bg-background">
       <div className="container px-4 mx-auto">
         <h2 className="text-center mb-16">
           <span className="block text-4xl font-bold text-foreground mb-2">Contact</span>
@@ -83,4 +87,6 @@ export default function Contact({ id }: { id?: string }) {
     </section>
   )
 }
+
+export default Contact;
 
