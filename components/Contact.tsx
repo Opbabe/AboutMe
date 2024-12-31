@@ -15,7 +15,7 @@ const Contact: React.FC<ContactProps> = ({ id }) => {
       <div className="container px-4 mx-auto">
         <h2 className="text-center mb-16">
           <span className="block text-4xl font-bold text-foreground mb-2">Contact</span>
-          <span className="text-xl text-muted-foreground">Let's connect and discuss your next project</span>
+          <span className="text-xl text-muted-foreground">Let&apos;s connect and discuss your next project</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <Card>
