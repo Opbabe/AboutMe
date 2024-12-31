@@ -104,7 +104,7 @@ const Projects: React.FC<ProjectsProps> = ({ id }) => {
   }
 
   return (
-    <section id={id} className="py-24 bg-background">
+    <section id={id} className="projects-section">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-2">Portfolio</h2>

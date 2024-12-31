@@ -35,7 +35,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
   ]
 
   return (
-    <section id="experience" className="py-24 bg-white">
+    <section id={id} className="py-24 bg-white">
       <div className="container px-4 mx-auto">
         <div className="text-center space-y-4 mb-24">
           <h2 className="text-4xl font-bold text-zinc-900">Experience</h2>

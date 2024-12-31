@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
 
   
   return (
-    <section id={id} className="min-h-screen flex items-center justify-center bg-background py-24">
+    <section id={id} className="hero-section">
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-2 gap-2 items-center">
           {/* Left content */}

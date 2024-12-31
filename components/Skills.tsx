@@ -48,12 +48,9 @@ const skillCategories = [
 
 const Skills: React.FC<SkillsProps> = ({ id }) => {
   return (
-    <section id="skills" className="py-24 bg-background">
-      <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-2">Skills</h2>
-          <p className="text-xl text-muted-foreground">My technical expertise and proficiencies</p>
-        </div>
+    <section id={id} className="py-24 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-8">Skills</h2>
         <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
           {skillCategories.map((category) => (
             <Card key={category.title} className="bg-card border-border">
