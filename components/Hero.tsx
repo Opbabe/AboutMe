@@ -72,6 +72,11 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
                   fill
                   className="object-cover"
                   priority
+                  onError={(e) => {
+                    console.error('Image failed to load:', e);
+                    // Optionally set a fallback image
+                    // e.currentTarget.src = '/images/fallback.jpg';
+                  }}
                 />
               </div>
             </div>
