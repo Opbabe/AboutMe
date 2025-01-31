@@ -34,7 +34,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-zinc-900 mb-1">San Jose State University</h3>
-              <p className="text-lg text-emerald-600 mb-4">B.S. Computer Science with minor in Math</p>
+              <p className="text-lg text-emerald-600 mb-4">B.S. Computer Science </p>
               <div className="space-y-1 text-zinc-600">
                 <p>Graduation: June 2026</p>
                 <p>GPA: 3.5</p>
