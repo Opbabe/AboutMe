@@ -8,28 +8,51 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ id }) => {
   const experiences = [
     {
+      company: "San José State University",
+      position: "Undergraduate Research Assistant",
+      date: "Nov 2025 - April 2025",
+      location: "San Jose, CA",
+      type: "Onsite",
+      achievements: [
+        "Conducted augmented reality research under Dr. Vuthea Chheang on hospital risk analysis and clinical decision support.",
+        "Programmed the entire immersive tool to visualize patient data and readmission risk on Apple Vision Pro.",
+        "Contributed to nomination for IEEE VR 2026, Daegu, Korea presentation.",
+      ],
+    },
+    {
+      company: "Lam Research",
+      position: "VR/AR Engineering Intern",
+      date: "May 2025 - Nov 2025",
+      location: "Fremont, CA",
+      type: "Onsite",
+      achievements: [
+        "Development of MR and AR special projects for Customer Support Business Group, Technical Training.",
+        "Hands-on designing of Etch Equipment Semiconductor Prototype and Animation using VisRen and Unity.",
+        "Created VR-ready models and reusable VR-specific code from BKM.",
+      ],
+    },
+    {
       company: "Warp",
-      position: "Data Engineering Internship",
+      position: "Data Engineering Intern",
       date: "June 2024 - September 2024",
       location: "Los Angeles, CA",
       type: "Hybrid",
       achievements: [
         "Secured $20 million funding from Angel investors within 3 months.",
-        "Coded logistics algorithms using JavaScript, NoSQL, and Linux.",
-        "Python automation saving $500k annually.",
-        "Designed ETL pipelines with Google Cloud Storage.",
+        "Python automation to optimize data workflows, saving the company $500k annually.",
+        "Designed ETL pipelines with Google Cloud Storage, BigQuery, and Python, automating data ingestion and reporting workflows.",
       ],
     },
     {
       company: "Apple",
-      position: "Technical Data Staff",
+      position: "Technical Virtual Reality Intern",
       date: "Oct 2023 - May 2024",
       location: "Cupertino, CA",
       type: "Onsite",
       achievements: [
-        "iOS Support and Troubleshooting.",
-        "GitHub repository management.",
-        "VisionPro project contributions.",
+        "VisionPro Support and Troubleshooting, providing technical support for iOS devices.",
+        "Contributed to GitHub repositories and collaborated on solutions for device memory management and power optimization.",
+        "Assisted in the VisionPro project, focusing on hardware integration and high-performance UI improvements.",
       ],
     },
   ]
