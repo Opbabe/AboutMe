@@ -14,9 +14,8 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
       location: "San Jose, CA",
       type: "Onsite",
       achievements: [
-        "Conducted augmented reality research under Dr. Vuthea Chheang on hospital risk analysis and clinical decision support.",
-        "Programmed the entire immersive tool to visualize patient data and readmission risk on Apple Vision Pro.",
-        "Contributed to nomination for IEEE VR 2026, Daegu, Korea presentation.",
+        "AR research on hospital risk analysis and clinical decision support for Apple Vision Pro.",
+        "Nominated for IEEE VR 2026, Daegu, Korea.",
       ],
     },
     {
