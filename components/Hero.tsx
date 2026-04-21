@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
               <h2 className="text-3xl md:text-4xl font-normal text-emerald-600">Software Engineer and Data Scientist</h2>
             </div>
             <p className="text-xl text-muted-foreground">
-              Incoming New Grad 2026, with experience in XR/AR development, Data AI engineering, and Technical designing products. I will be seeking a New Grad role where I can bring my talent and improve technical experiences.
+              Incoming New Grad 2026, with experience in XR/AR development, Data AI engineering, and Technical designing products.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Button asChild size="lg">
