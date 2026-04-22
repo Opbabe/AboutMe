@@ -22,7 +22,7 @@ export default function Header() {
           <span className="font-bold text-xl">Nick Tran</span>
         </a>
         <nav className="hidden md:flex space-x-6">
-          {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+          {['About', 'Experience', 'Publications', 'Projects', 'Skills', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
