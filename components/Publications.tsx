@@ -1,15 +1,22 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { FileText, ExternalLink, Users, Calendar, MapPin, Presentation } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FileText, ExternalLink, Users, Calendar, MapPin, Presentation, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
 interface PublicationsProps {
   id: string;
 }
+
+const publicationImages = [
+  { src: "/images/publication-vr.png", alt: "Main Dashboard - Patient risk overview with clinical drivers" },
+  { src: "/images/publication-dashboard.png", alt: "Patient List & Analytics - Intake/Outtake tracking" },
+  { src: "/images/publication-setup.png", alt: "AR-Admission Setup - Device configuration" },
+  { src: "/images/publication-guide.png", alt: "Quick Start Guide - User onboarding flow" },
+]
 
 const publication = {
   title: "Towards Extended Reality Intelligence for Monitoring and Predicting Patient Readmission Risks",
@@ -22,13 +29,22 @@ const publication = {
   doi: "10.48550/arXiv.2603.20556",
   subjects: ["Human-Computer Interaction (cs.HC)", "Graphics (cs.GR)"],
   status: "Published",
-  image: "/images/publication-vr.png",
   paperUrl: "https://arxiv.org/abs/2603.20556",
   presentationUrl: "https://docs.google.com/presentation/d/1qSJaoMXP8pGr3sAxEQ3sddJHsu5RJfizeX-hullC6D8/edit?usp=sharing",
   abstract: "This research explores the integration of extended reality technologies with artificial intelligence for real-time monitoring and prediction of patient readmission risks in healthcare settings. Built for Apple Vision Pro, the system provides immersive visualization of patient data and clinical decision support."
 }
 
 const Publications: React.FC<PublicationsProps> = ({ id }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % publicationImages.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + publicationImages.length) % publicationImages.length)
+  }
+
   return (
     <section id={id} className="py-24 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -62,33 +78,100 @@ const Publications: React.FC<PublicationsProps> = ({ id }) => {
             
             <div className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
               <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image Section */}
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 z-10" />
-                  <Image
-                    src={publication.image}
-                    alt={publication.title}
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover min-h-[400px] lg:min-h-[600px]"
-                  />
-                  {/* Overlay with status badge */}
-                  <div className="absolute top-4 left-4 z-20">
-                    <Badge className="bg-emerald-500 text-white hover:bg-emerald-600 px-3 py-1">
-                      {publication.status}
-                    </Badge>
+                {/* Image Gallery Section */}
+                <div className="relative group bg-muted/30">
+                  <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[600px]">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentImageIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={publicationImages[currentImageIndex].src}
+                          alt={publicationImages[currentImageIndex].alt}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+
+                    {/* Navigation Arrows */}
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+
+                    {/* Image indicators */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                      {publicationImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            index === currentImageIndex 
+                              ? 'bg-white w-6' 
+                              : 'bg-white/50 hover:bg-white/75'
+                          }`}
+                          aria-label={`Go to image ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Status badge */}
+                    <div className="absolute top-4 left-4 z-20">
+                      <Badge className="bg-emerald-500 text-white hover:bg-emerald-600 px-3 py-1">
+                        {publication.status}
+                      </Badge>
+                    </div>
+
+                    {/* Conference badge */}
+                    <div className="absolute top-4 right-4 z-20">
+                      <div className="bg-black/60 backdrop-blur-md rounded-lg px-3 py-2">
+                        <div className="flex items-center gap-2 text-white/90 text-xs">
+                          <MapPin className="h-3 w-3 text-emerald-400" />
+                          <span>{publication.conference}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  {/* Conference badge */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20">
-                    <div className="bg-black/60 backdrop-blur-md rounded-xl p-4">
-                      <div className="flex items-center gap-2 text-white/90 text-sm mb-2">
-                        <MapPin className="h-4 w-4 text-emerald-400" />
-                        <span>{publication.conference}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/70 text-sm">
-                        <Calendar className="h-4 w-4" />
-                        <span>{publication.location} | {publication.date}</span>
-                      </div>
+
+                  {/* Thumbnail strip */}
+                  <div className="absolute bottom-16 left-4 right-4 z-20">
+                    <div className="flex gap-2 justify-center">
+                      {publicationImages.map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                            index === currentImageIndex 
+                              ? 'border-white shadow-lg scale-105' 
+                              : 'border-transparent opacity-70 hover:opacity-100'
+                          }`}
+                        >
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className="object-cover"
+                            sizes="64px"
+                          />
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -113,6 +196,18 @@ const Publications: React.FC<PublicationsProps> = ({ id }) => {
                             {author}{index < publication.authors.length - 1 ? "," : ""}
                           </span>
                         ))}
+                      </div>
+                    </div>
+
+                    {/* Conference info */}
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        <span>{publication.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4" />
+                        <span>{publication.location}</span>
                       </div>
                     </div>
 
