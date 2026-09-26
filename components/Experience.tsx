@@ -8,6 +8,16 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ id }) => {
   const experiences = [
     {
+      company: "Tesla",
+      position: "Autopilot Engineer (Full-Time Engineer)",
+      date: "May 2026 - Present",
+      location: "Palo Alto, CA",
+      type: "Onsite",
+      achievements: [
+        "Working on Optimus Robotics under NDA.",
+      ],
+    },
+    {
       company: "San José State University",
       position: "Undergraduate Research Assistant",
       date: "Nov 2025 - April 2026",
